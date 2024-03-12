@@ -1,0 +1,12 @@
+{
+  "name": "ith-landing2",
+  "version": "1.0.0",
+  "description": "ITHub HTML&CSS course part II",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Alexey Ryabkov <xelaris@ya.com>",
+  "license": "ISC"
+}
