@@ -7,6 +7,12 @@
     "node": ">=22.0.0 <23.0.0"
   },
   "scripts": {
+    "start": "http-server dist",
+    "build": "parcel build src/index.pug",
+    "dev": "parcel src/index.pug",
+    "lint:styles": "stylelint 'src/**/*.scss'",
+    "lint:fix": "stylelint 'src/**/*.scss' --fix",
+    "format:pug": "prettier 'src/**/*.pug' --write",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
