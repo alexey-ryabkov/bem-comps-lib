@@ -37,6 +37,8 @@
     "stylelint-prettier": "5.0.2"
   },
   "dependencies": {
-    "http-server": "14.1.1"
+    "hover.css": "2.3.2",
+    "http-server": "14.1.1",
+    "lenis": "1.1.20"
   }
 }
