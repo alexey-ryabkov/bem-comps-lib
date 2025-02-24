@@ -1,0 +1,107 @@
+$tip-size: 7px;
+$negative-tip-size: calc(-1 * $tip-size);
+$parent-with-tip-size: calc(100% + $tip-size);
+
+@mixin tip($pos) {
+  @util triangle($tip-size, var(--tb-color, $black), $pos);
+}
+
+.tooltip {
+  display: inline-block;
+  vertical-align: baseline;
+  position: relative;
+  color: var(--text-contrast-color, $black);
+
+  &_opened {
+    text-align: center;
+  }
+
+  &__trigger {
+    size: 24px;
+  }
+
+  &__bubble {
+    --tb-color: var(--text-contrast-color, $black);
+    
+    display: none;
+    border-radius: 10px;
+    color: $grey-2 var(--tb-color, $black);
+    box-shadow: 0 2px 4px 0 rgb(33 36 41 / 5%);  
+    text-align: center;
+    font-size: 16px;
+    min-height: 24px;
+    padding: 13px 21px 8px;
+    width: 87px;
+
+    &::after {
+      content: '';
+    }
+
+    &_primary {
+      --tb-color: $color-primary;
+    }
+
+    &_pos_top {
+      bottom: $parent-with-tip-size;
+    
+      @include axis-centered(horizontal);
+    
+      &::after {
+        top: 100%;
+      
+        @include tip(down);
+        @include axis-centered(horizontal);
+      }
+    }
+
+    &_pos_bottom {
+      top: 100%;
+    
+      @include axis-centered(horizontal);
+    
+      &::after {
+        top: $negative-tip-size;
+      
+        @include tip(up);
+        @include axis-centered(horizontal);
+      }
+    }
+
+    &_pos_left {
+      right: $parent-with-tip-size;
+    
+      @include axis-centered(vertical);
+    
+      &::after {
+        left: 100%;
+      
+        @include tip(right);
+        @include axis-centered(vertical);
+      }
+    }
+
+    &_pos_right {
+      left: $parent-with-tip-size;
+    
+      @include axis-centered(vertical);
+    
+      &::after {
+        left: $negative-tip-size;
+      
+        @include tip(left);
+        @include axis-centered(vertical);
+      }
+    }
+  }
+
+  &_opened &__bubble {
+    position: relative * * * auto;
+    transform: none;
+    margin-bottom: $tip-size;
+  }
+
+  &_opened &__bubble,
+  &__trigger:hover ~ &__bubble {
+    display: block;
+  }
+}
