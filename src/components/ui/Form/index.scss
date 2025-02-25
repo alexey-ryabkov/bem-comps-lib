@@ -1,0 +1,31 @@
+.form {
+  &__cols {
+    @include box-aligning(14px);
+
+    @media (--layout-mf-lg) {  
+      gap: 42px;
+    }
+    @media (--layout-mf-md) {
+      padding: 14px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+
+  &__fields {
+    @include box-stack(10px);
+  }
+
+  &__feild {
+    gap: 14px;
+  }
+
+  &__submitButton {
+    min-width: 175px;
+
+  }
+
+  &__fields + &__submitButton {
+    margin-top: 20px;
+  }
+}

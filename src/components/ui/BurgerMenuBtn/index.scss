@@ -1,0 +1,21 @@
+.burgerMenuShowButton {
+  display: none;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity .25s linear;
+
+  @include reset-geometry(true);
+  @util circle(32px, initial);
+  @media (--layout-df-md) {
+    display: inline-block;
+  }
+
+  &:hover {
+    background: $grey-2;
+  }
+
+  &__icon {
+    color: var(--text-contrast-color, $black);
+    size: 24px;
+  }
+}
