@@ -1,0 +1,14 @@
+{
+  "pretty": true,
+  "self": false,
+  "debug": false,
+  "compileDebug": false,
+  "globals": [
+    "window",
+    "document"
+  ],
+  "locals": {
+    "title": "Библиотека BEM компонент",
+    "aboutLink": "https://github.com/alexey-ryabkov/bem-comps-lib?tab=readme-ov-file"
+  }
+}
