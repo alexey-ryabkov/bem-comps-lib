@@ -1,0 +1,46 @@
+@use 'vars' as *;
+@use '../components/layout/page/page';
+@use '../components/layout/layoutContainer/layoutContainer';
+@use '../components/layout/header/header';
+@use '../components/layout/footer/footer';
+@use '../components/layout/menu/menu';
+@use '../components/layout/burgerPanel/burgerPanel';
+@use '../components/layout/burgerPanelShowBtn/burgerPanelShowBtn';
+@use '../components/lib/toggler/toggler';
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  // font-family: Arial, sans-serif;
+  font-family: $font-family-def;
+  font-weight: $font-weight-def;
+  font-style: normal;
+  color: $black;
+  // color: $color-primary;
+
+  /* TODO in var */
+  // background-color: #f4f4f4;
+
+  animation: fadeIn 1s ease-in-out;
+
+  &:has(.burgerPanel[data-open]) {
+    overflow: hidden;
+  }
+
+  &:has(.burgerPanel[data-open]) .burgerPanelShowBtn {
+    opacity: 0;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+}

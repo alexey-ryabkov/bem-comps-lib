@@ -1,0 +1,239 @@
+@use 'vars' as *;
+@use 'sass:list';
+@use 'sass:string';
+
+@mixin font(
+  $size: null,
+  $line-height: null,
+  $weight: null,
+  $family: null,
+  $letter-spacing: null
+) {
+  @if $size {
+    font-size: $size;
+  }
+
+  @if $line-height {
+    line-height: $line-height;
+  }
+
+  @if $weight {
+    font-weight: $weight;
+  }
+
+  @if $family {
+    font-family: $family;
+  }
+
+  @if $letter-spacing {
+    letter-spacing: $letter-spacing;
+  }
+}
+
+@mixin font-def {
+  @include font($font-size-def, $line-height-def);
+}
+
+@mixin text-interactive {
+  cursor: pointer;
+  user-select: none;
+}
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin color($color, $background: null, $border: null) {
+  color: $color;
+
+  @if $background {
+    background-color: $background;
+  }
+
+  @if $border {
+    border-color: $border;
+  }
+}
+
+@mixin reset-geometry($zeroFont: null) {
+  margin: 0;
+  padding: 0;
+  border: 0;
+
+  @if $zeroFont {
+    font-size: 0;
+  }
+}
+
+@mixin hide-visually {
+  position: absolute;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+
+  @include size(1px);
+}
+
+@mixin circled($radius, $color: null, $overflow: null) {
+  border-radius: 50%;
+
+  @include size($radius * 2);
+
+  @if $color {
+    background-color: $color;
+  }
+
+  @if $overflow {
+    overflow: $overflow;
+  }
+}
+
+@mixin triangled($size, $color, $direction) {
+  border-style: solid;
+
+  @include size(0);
+
+  @if $direction == up or $direction == top {
+    border-width: 0 $size $size;
+    border-color: transparent transparent $color;
+  } @else if $direction == down or $direction == bottom {
+    border-width: $size $size 0 $size;
+    border-color: $color transparent transparent transparent;
+  } @else if $direction == left {
+    border-width: $size $size $size 0;
+    border-color: transparent transparent transparent $color;
+  } @else if $direction == right {
+    border-width: $size 0 $size $size;
+    border-color: transparent $color transparent transparent;
+  } @else if $direction == top-left {
+    border-width: $size $size 0 0;
+    border-color: $color transparent transparent transparent;
+  } @else if $direction == top-right {
+    border-width: $size 0 0 $size;
+    border-color: transparent transparent transparent $color;
+  } @else if $direction == bottom-left {
+    border-width: 0 $size $size 0;
+    border-color: transparent $color transparent transparent;
+  } @else if $direction == bottom-right {
+    border-width: 0 0 $size $size;
+    border-color: transparent transparent $color;
+  } @else {
+    @error "Invalid direction `#{$direction}`. Use top, right, bottom, or left.";
+  }
+}
+
+@mixin position(
+  $top: null,
+  $right: null,
+  $bottom: null,
+  $left: null,
+  $position: absolute
+) {
+  position: $position;
+
+  @if $top {
+    top: $top;
+  }
+
+  @if $right {
+    right: $right;
+  }
+
+  @if $bottom {
+    bottom: $bottom;
+  }
+
+  @if $left {
+    left: $left;
+  }
+}
+
+@mixin centered($axis: null) {
+  @if $axis == vertical {
+    transform: translateY(-50%);
+
+    @include position(50%);
+  } @else if $axis == horizontal {
+    left: 50%;
+    transform: translateX(-50%);
+
+    @include position(null, null, null, 50%);
+  } @else {
+    transform: translate(-50%, -50%);
+
+    @include position(50%, null, null, 50%);
+  }
+}
+
+@mixin img-covering {
+  object-fit: cover;
+
+  @include size(100%);
+}
+
+@mixin box-covering($position: null, $z-index: null) {
+  inset: 0;
+
+  @if $position {
+    position: $position;
+  } @else {
+    position: absolute;
+  }
+
+  @if $z-index {
+    z-index: $z-index;
+  }
+}
+
+@mixin box-centering {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin box-centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin box-aligning($gap: null) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @if $gap {
+    gap: $gap;
+  }
+}
+
+@mixin box-stack($gap: null, $align: center, $justify: space-between) {
+  display: flex;
+  flex-direction: column;
+
+  @if $gap {
+    gap: $gap;
+  }
+
+  @if $align {
+    align-items: $align;
+  }
+
+  @if $justify {
+    justify-content: $justify;
+  }
+}
+
+/* 
+@mixin fullscreen {
+  object-fit: cover;
+
+  @include size(100vw, 100vh);
+}
+
+@function capitalize-first($str) {
+  @return string.to-upper-case(string.slice($str, 1, 1)) + string.slice($str, 2);
+} */

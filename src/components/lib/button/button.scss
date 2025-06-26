@@ -1,0 +1,77 @@
+@use '../../../css/vars' as *;
+@use '../../../css/utils';
+
+.button {
+  height: 3em;
+  line-height: normal;
+  padding: 0.94em 0.94em 0.88;
+  box-sizing: border-box;
+  border-radius: 0.5em;
+  text-align: center;
+  border: 0;
+  cursor: pointer;
+  transition: transform 0.2s linear;
+
+  @include utils.font(16px, false, $font-weight-bolder, Roboto);
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &_inStack {
+    font-size: 12px;
+    width: 75%;
+
+    @media (--layout-mf-sm) {
+      font-size: 14px;
+    }
+
+    @media (--layout-mf-md) {
+      font-size: 16px;
+    }
+  }
+
+  &_var_primary {
+    @include utils.color($white, $color-primary);
+
+    &:hover,
+    &:active {
+      background: $color-primary-active;
+    }
+  }
+
+  &_var_secondary {
+    @include utils.color($white, $color-secondary);
+
+    &:hover,
+    &:active {
+      @include utils.color($white, $color-secondary-active);
+    }
+  }
+
+  &_var_alternate {
+    border: 1px solid var(--text-pale-color, $grey-3);
+
+    @include utils.color(var(--text-regular-color, $grey-4), transparent);
+
+    &:hover,
+    &:active {
+      @include utils.color(
+        var(--text-contrast-color, $black),
+        initial,
+        var(--text-primary-color, $black)
+      );
+    }
+  }
+
+  @each $size in (150, 200) {
+    &_width_#{$size} {
+      width: #{$size}px;
+    }
+  }
+}

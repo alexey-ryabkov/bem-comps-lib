@@ -1,0 +1,78 @@
+@use '../../../css/vars' as *;
+@use '../../../css/utils';
+
+.footer {
+  padding: 42px 0;
+  text-align: center;
+  border-top: 1px solid $grey-2;
+  background: var(--content-bg-color, $white);
+
+  @media (--layout-mf-md) {
+    padding: 56px 0;
+    border-top-width: 2px;
+  }
+
+  &:not(&_compact) {
+    @media (--layout-mf-lg) {
+      padding: 72px 0;
+    }
+  }
+
+  &_compact {
+    padding: 16px 0;
+    border: none;
+    background: transparent;
+
+    @media (--layout-mf-sm) {
+      padding: 24px 0;
+    }
+
+    @media (--layout-mf-md) {
+      padding-top: 20px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    color: var(--text-contrast-color, $black);
+
+    @include utils.font(22px, false, $font-weight-def);
+  }
+
+  &_compact &__title {
+    color: $grey-3;
+    text-transform: uppercase;
+
+    @include utils.font(12px, 18px, $font-weight-bolder, false, 0.48px);
+  }
+
+  &:not(&_compact) &__title {
+    @media (--layout-mf-lg) {
+      color: var(--text-contrast-color, $black);
+      margin: 0 0 32px;
+
+      @include utils.font(38px, false, $font-weight-bolder);
+    }
+  }
+
+  &__desc {
+    padding: 0 0 20px;
+    margin: 18px auto 0;
+    max-width: 640px;
+    color: var(--text-contrast-color, $black);
+
+    @include utils.font(14px, normal);
+
+    @media (--layout-mf-md) {
+      padding-bottom: 30px;
+    }
+
+    @media (--layout-mf-lg) {
+      margin-top: 32;
+      padding-bottom: 60px;
+      color: var(--text-contrast-color, $black);
+
+      @include utils.font-def;
+    }
+  }
+}

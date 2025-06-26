@@ -1,0 +1,73 @@
+@use '../../../css/vars' as *;
+@use '../../../css/utils';
+
+.modal {
+  background: rgb(196 196 196 / 50%);
+  display: none;
+
+  @include utils.box-covering(fixed, 1);
+
+  &_opened {
+    display: block;
+    position: absolute;
+  }
+
+  &_noViel {
+    background: transparent;
+  }
+
+  &__window {
+    width: 90%;
+    min-width: 304px;
+    padding: 30px 40px 33px;
+    border-radius: 8px;
+    background: var(--content-bg-color, $white);
+    box-sizing: border-box;
+
+    @include utils.centered;
+
+    @media (--layout-mf-sm) {
+      width: 428px;
+    }
+  }
+
+  &_compact &__window {
+    width: 240px;
+    transform: translateX(-50%) translateY(-50%) scale(0.6);
+    padding: 25px;
+
+    @media (--layout-mf-md) {
+      padding: 30px 40px 33px;
+    }
+  }
+
+  &__title {
+    color: var(--text-contrast-color, $grey-4);
+    margin: 0;
+
+    @include utils.font(20px, 24px, $font-weight-bold);
+  }
+
+  &__content {
+    color: var(--text-regular-color, $grey-4);
+    margin: 0;
+
+    @include utils.font-def;
+  }
+
+  &__title + &__content {
+    margin-top: 14px;
+  }
+
+  &__closeButton {
+    cursor: pointer;
+
+    @include utils.reset-geometry(true);
+    @include utils.color(var(--text-contrast-color, $grey-4), transparent);
+    @include utils.position(12px, 12px);
+  }
+
+  &__closeButtonIcon {
+    @include utils.size(16px);
+  }
+}

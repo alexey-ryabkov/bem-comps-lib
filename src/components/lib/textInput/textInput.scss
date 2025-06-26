@@ -1,0 +1,38 @@
+@use '../../../css/vars' as *;
+@use '../../../css/utils';
+
+.textInput {
+  border: 1px solid var(--control-border-color, $grey-2);
+  border-radius: 0.4em;
+  padding: 0.85em 2.4em 0.65em 1.2em;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+
+  @include utils.color(var(--text-contrast-color, $grey-4), transparent);
+  @include utils.font(1.25em, 1.3em);
+
+  &::placeholder {
+    color: var(--text-mute-color, $grey-2);
+  }
+
+  &:disabled {
+    @include utils.color(
+      var(--control-disabled-color, #59616a),
+      var(--control-disabled-bg-color, $grey-1),
+      var(--control-disabled-border-color, $grey-2)
+    );
+  }
+
+  &:focus {
+    border-color: var(--control-checked-color, $color-primary);
+  }
+
+  &_compact {
+    padding: 0.5em 2.4em 0.4em 1.2em;
+  }
+
+  &_fullWidth {
+    width: 100%;
+  }
+}

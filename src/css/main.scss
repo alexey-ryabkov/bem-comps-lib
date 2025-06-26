@@ -1,21 +1,4 @@
-@custom-media --small-screen (max-width: 600px);
-
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  color: $primary-color;
-  animation: fadeIn 1s ease-in-out;
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @media (--small-screen) {
-    background-color: #e0e0e0;
-  }
-}
+@use 'sanitize.css';
+@use 'inits';
+@use 'global';
+@use 'layout';

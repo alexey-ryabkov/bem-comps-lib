@@ -1,0 +1,87 @@
+@use '../../../css/vars' as *;
+@use '../../../css/utils';
+
+$validity-status-colors: (
+  error: $color-error,
+  success: $color-success,
+);
+
+.formField {
+  font-size: 16px;
+
+  @include utils.box-stack(0.31em, flex-start);
+
+  &_onPreviewCard {
+    font-size: 10px;
+    width: 90%;
+
+    @media (--layout-mf-sm) {
+      font-size: 12px;
+    }
+
+    @media (--layout-mf-lg) {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    display: inline-block;
+    color: $grey-3;
+    text-transform: uppercase;
+
+    @include utils.text-interactive;
+    @include utils.font(0.75em, 1.13, $font-weight-bolder, false, 0.03em);
+  }
+
+  &__title:has(+ &__field &__control:disabled) {
+    cursor: default;
+  }
+
+  &__field {
+    position: relative;
+
+    &_fullWidth {
+      width: 100%;
+    }
+  }
+
+  &_onPreviewCard &__field {
+    width: 100%;
+  }
+
+  &__icon {
+    display: none;
+    transform: translateY(-50%);
+
+    @include utils.size(1.5em);
+    @include utils.position(50%, 1em);
+  }
+
+  @each $name, $color in $validity-status-colors {
+    &_validity_#{$name} &__icon_#{$name} {
+      display: inline-block;
+      color: $color;
+    }
+  }
+
+  &__status {
+    @include utils.font(0.75rem, 1.2, $font-weight-bolder);
+  }
+
+  @each $name, $color in $validity-status-colors {
+    &_validity_#{$name} &__status {
+      color: $color;
+    }
+  }
+
+  &_disabled &__status {
+    color: var(--text-mute-color, $grey-2);
+  }
+
+  @each $name, $color in $validity-status-colors {
+    &_validity_#{$name} &__control_type_textInput,
+    &_validity_#{$name} &__control_type_textInput:focus {
+      border-color: $color;
+    }
+  }
+}

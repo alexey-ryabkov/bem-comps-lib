@@ -1,0 +1,15 @@
+/* stylelint-disable custom-media-pattern */
+
+@use 'vars' as *;
+@import 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap';
+@import 'https://use.typekit.net/sgc4mov.css';
+
+// "mobile first" custom media query names
+@each $name, $breakpoint in $layout-breakpoints {
+  @custom-media --layout-mf-#{$name} screen and (width >= #{$breakpoint});
+}
+// "desktop first" custom media query names
+@each $name, $breakpoint in $layout-breakpoints {
+  @custom-media --layout-df-#{$name} screen and (width < #{$breakpoint});
+}

@@ -1,0 +1,112 @@
+@use '../../../css/vars' as *;
+@use '../../../css/utils';
+
+$tip-size: 7px;
+$negative-tip-size: calc(-1 * $tip-size);
+$parent-with-tip-size: calc(100% + $tip-size);
+
+@mixin tip($pos) {
+  @include utils.triangled($tip-size, var(--tb-color, $black), $pos);
+}
+
+.tooltip {
+  display: inline-block;
+  vertical-align: baseline;
+  position: relative;
+  color: var(--text-contrast-color, $black);
+
+  &_opened {
+    text-align: center;
+  }
+
+  &__trigger {
+    @include utils.size(24px);
+  }
+
+  &__bubble {
+    --tb-color: var(--text-contrast-color, $black);
+
+    display: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgb(33 36 41 / 5%);
+    text-align: center;
+    font-size: 16px;
+    min-height: 24px;
+    padding: 13px 21px 8px;
+    width: 87px;
+
+    @include utils.color($grey-2, var(--tb-color, $black));
+
+    &::after {
+      content: '';
+    }
+
+    &_primary {
+      --tb-color: $color-primary;
+    }
+
+    &_pos_top {
+      bottom: $parent-with-tip-size;
+
+      @include utils.centered(horizontal);
+
+      &::after {
+        top: 100%;
+
+        @include tip(down);
+        @include utils.centered(horizontal);
+      }
+    }
+
+    &_pos_bottom {
+      top: 100%;
+
+      @include utils.centered(horizontal);
+
+      &::after {
+        top: $negative-tip-size;
+
+        @include tip(up);
+        @include utils.centered(horizontal);
+      }
+    }
+
+    &_pos_left {
+      right: $parent-with-tip-size;
+
+      @include utils.centered(vertical);
+
+      &::after {
+        left: 100%;
+
+        @include tip(right);
+        @include utils.centered(vertical);
+      }
+    }
+
+    &_pos_right {
+      left: $parent-with-tip-size;
+
+      @include utils.centered(vertical);
+
+      &::after {
+        left: $negative-tip-size;
+
+        @include tip(left);
+        @include utils.centered(vertical);
+      }
+    }
+  }
+
+  &_opened &__bubble {
+    position: relative;
+    left: auto;
+    transform: none;
+    margin-bottom: $tip-size;
+  }
+
+  &_opened &__bubble,
+  &__trigger:hover ~ &__bubble {
+    display: block;
+  }
+}
