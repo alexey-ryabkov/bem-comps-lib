@@ -1,11 +1,12 @@
 @use 'vars' as *;
+@use 'utils';
 @use '../components/layout/page/page';
 @use '../components/layout/layoutContainer/layoutContainer';
 @use '../components/layout/header/header';
 @use '../components/layout/footer/footer';
 @use '../components/layout/menu/menu';
-@use '../components/layout/burgerPanel/burgerPanel';
-@use '../components/layout/burgerPanelShowBtn/burgerPanelShowBtn';
+@use '../components/layout/menuPanel/menuPanel';
+@use '../components/layout/openMenuPanelBtn/openMenuPanelBtn';
 @use '../components/lib/toggler/toggler';
 
 html,
@@ -14,27 +15,12 @@ body {
 }
 
 body {
-  // font-family: Arial, sans-serif;
-  font-family: $font-family-def;
-  font-weight: $font-weight-def;
-  font-style: normal;
   color: $black;
-  // color: $color-primary;
+  animation: fade-in 1s ease-in-out;
 
-  /* TODO in var */
-  // background-color: #f4f4f4;
+  @include utils.font(null, null, $font-weight-def, $font-default-family);
 
-  animation: fadeIn 1s ease-in-out;
-
-  &:has(.burgerPanel[data-open]) {
-    overflow: hidden;
-  }
-
-  &:has(.burgerPanel[data-open]) .burgerPanelShowBtn {
-    opacity: 0;
-  }
-
-  @keyframes fadeIn {
+  @keyframes fade-in {
     from {
       opacity: 0;
     }

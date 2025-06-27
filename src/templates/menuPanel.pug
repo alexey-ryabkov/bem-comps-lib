@@ -1,0 +1,46 @@
+#menu-panel.menuPanel.menuPanel_forHeaderTransparent.menuPanel_noTopSeparator
+  button#menu-panel-close.menuPanel__closeButton
+    svg.menuPanel__closeButtonIcon(
+      xmlns='http://www.w3.org/2000/svg',
+      fill='currentColor'
+    )
+      use(href='./assets/icons/sprite.svg#cross')
+  .menuPanel__content
+    .menuPanel__themeTogglerBox
+      .menuPanel__contentGroup
+        .menuPanel__themeToggler
+          label.menuPanel__themeTogglerLabel(for='theme-changer-alt').
+            Темная тема
+          label.toggler
+            input#theme-changer-alt.toggler__input(type='checkbox')
+            span.toggler__state
+              span.toggler__control
+    aside.menu.menuPanel__menu
+      section.menuPanel__contentGroup
+        .menu__group
+          h4.menu__title Компоненты
+          nav.menu__list
+            a.menu__item(href='#') Кастомные элементы форм
+            a.menu__item(href='#') Аккордеон
+            a.menu__item(href='#') Модальное окно
+            a.menu__item(href='#') Тултип
+      section.menuPanel__contentGroup
+        .menu__group
+          h4.menu__title Документация
+          nav.menu__list
+            a.menu__item(href='#') Кастомные элементы форм
+            a.menu__item(href='#') Аккордеон
+            a.menu__item(href='#') Модальное окно
+            a.menu__item(href='#') Тултип
+      section.menuPanel__contentGroup
+        .menu__group
+          h4.menu__title Контакты
+          nav.menu__list
+            a.menu__item(
+              href='mailto://RyabkovAN23@st.ithub.ru',
+              target='_blank'
+            ) Email
+            a.menu__item(
+              href='https://github.com/alexey-ryabkov/',
+              target='_blank'
+            ) Github

@@ -42,7 +42,7 @@ $parent-with-tip-size: calc(100% + $tip-size);
     }
 
     &_primary {
-      --tb-color: $color-primary;
+      --tb-color: #{$color-primary};
     }
 
     &_pos_top {

@@ -43,7 +43,7 @@
     color: $grey-3;
     text-transform: uppercase;
 
-    @include utils.font(12px, 18px, $font-weight-bolder, false, 0.48px);
+    @include utils.font(12px, 18px, $font-weight-bolder, null, 0.48px);
   }
 
   &:not(&_compact) &__title {

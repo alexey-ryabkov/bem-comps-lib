@@ -1,14 +1,14 @@
 @use '../../../css/vars' as *;
 @use '../../../css/utils';
 
-.burgerPanelShowBtn {
+.openMenuPanelBtn {
   display: none;
   cursor: pointer;
   opacity: 1;
   transition: opacity 0.25s linear;
 
   @include utils.reset-geometry(true);
-  @include utils.circled(32px);
+  @include utils.circled(32px, initial);
 
   @media (--layout-df-md) {
     display: inline-block;

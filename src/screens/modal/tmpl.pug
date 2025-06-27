@@ -1,0 +1,107 @@
+.screen
+  .previewCard.tileList__item
+    .previewCard__placeholder.previewCard__placeholder_noPaddings.previewCard__placeholder_noBorder
+      .previewCard__preview.previewCard__preview_fullSize
+        #modal.modal.modal_opened.modal_compact.compPreviews__previewModal
+          .modal__window
+            .modal__content
+              form.form(action)
+                .form__fields
+                  .formField.form__field
+                    label.formField__title(for='name') Ваше имя
+                    .formField__field.formField__field_fullWidth
+                      input#name.textInput.textInput_compact.textInput_fullWidth.formField__control.formField__control_type_textInput(
+                        type='text',
+                        placeholder='Placeholder'
+                      )
+                      svg.formField__icon.formField__icon_error(
+                        xmlns='http://www.w3.org/2000/svg'
+                      )
+                        use(href='./assets/icons/sprite.svg#warning')
+                      svg.formField__icon.formField__icon_success(
+                        xmlns='http://www.w3.org/2000/svg'
+                      )
+                        use(href='./assets/icons/sprite.svg#checkInCircle')
+                    .formField.form__field
+                      label.formField__title(for='email') Email
+                      .formField__field.formField__field_fullWidth
+                        input#email.textInput.textInput_compact.textInput_fullWidth.formField__control.formField__control_type_textInput(
+                          type='text',
+                          placeholder='Placeholder'
+                        )
+                        svg.formField__icon.formField__icon_error(
+                          xmlns='http://www.w3.org/2000/svg'
+                        )
+                          use(href='./assets/icons/sprite.svg#warning')
+                        svg.formField__icon.formField__icon_success(
+                          xmlns='http://www.w3.org/2000/svg'
+                        )
+                          use(href='./assets/icons/sprite.svg#checkInCircle')
+                  button.button.button_var_primary.form__submitButton Отправить
+    h2.previewCard__title Модальное окно
+    .previewCard__desc Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam praesentium veritatis nobis vitae quos atque nihil sunt architecto tempora error? Tempore soluta suscipit fuga consequuntur, explicabo voluptatum excepturi officiis mollitia.
+  .componentDetail
+    h1.page__title Компонент модального окна
+    .componentDetail__component
+      button#modal-open.button.button_var_primary.button_width_150 Показать окно
+      #modal.modal
+        .modal__window
+          h5.modal__title Название модалки
+          .modal__content
+            p.
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit architecto animi.              
+            form.form(action)
+              .form__fields
+                .formField.form__field
+                  label.formField__title(for='name') Ваше имя
+                  .formField__field.formField__field_fullWidth
+                    input#name.textInput.textInput_compact.textInput_fullWidth.formField__control.formField__control_type_textInput(
+                      type='text',
+                      placeholder='Placeholder'
+                    )
+                    svg.formField__icon.formField__icon_error(
+                      xmlns='http://www.w3.org/2000/svg'
+                    )
+                      use(href='./assets/icons/sprite.svg#warning')
+                    svg.formField__icon.formField__icon_success(
+                      xmlns='http://www.w3.org/2000/svg'
+                    )
+                      use(href='./assets/icons/sprite.svg#checkInCircle')
+                .formField.form__field
+                  label.formField__title(for='email') Email
+                  .formField__field.formField__field_fullWidth
+                    input#email.textInput.textInput_compact.textInput_fullWidth.formField__control.formField__control_type_textInput(
+                      type='text',
+                      placeholder='Placeholder'
+                    )
+                    svg.formField__icon.formField__icon_error(
+                      xmlns='http://www.w3.org/2000/svg'
+                    )
+                      use(href='./assets/icons/sprite.svg#warning')
+                    svg.formField__icon.formField__icon_success(
+                      xmlns='http://www.w3.org/2000/svg'
+                    )
+                      use(href='./assets/icons/sprite.svg#checkInCircle')
+              button.button.button_var_primary.form__submitButton Отправить
+          button#modal-close.modal__closeButton
+            svg.modal__closeButtonIcon(xmlns='http://www.w3.org/2000/svg')
+              use(href='./assets/icons/sprite.svg#cross')
+    .tabs.componentDetail__tabs
+      input#html-tab.tabs__tabControl.tabs__tabControl_tabNum_1(
+        type='radio',
+        name='tabs',
+        checked
+      )
+      input#css-tab.tabs__tabControl.tabs__tabControl_tabNum_2(
+        type='radio',
+        name='tabs'
+      )
+      .tabs__nav
+        label.tabs__tab(for='#html-tab')
+          span.tabs__tabTitle.tabs__tabTitle_tabNum_1 HTML
+        label.tabs__tab(for='#css-tab')
+          span.tabs__tabTitle.tabs__tabTitle_tabNum_2 CSS
+      .tabs__content.tabs__content_tabNum_1
+        .componentDetail__tabContent html
+      .tabs__content.tabs__content_tabNum_2
+        .componentDetail__tabContent css

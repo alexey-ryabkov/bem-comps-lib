@@ -11,7 +11,7 @@ $pink-darker: color.adjust($pink, $lightness: -15%);
 $green-light: #95de64;
 $red: #f03d3e;
 $orange: #d84910;
-$grey-0: #f9fafc;
+$grey-0: #f9fafc; // #f4f4f4
 $grey-1: #f8f9fa;
 $grey-2: #dde2e5;
 $grey-3: #acb5bd;
@@ -30,6 +30,7 @@ $color-secondary-active: $pink-darker;
 $rem-size: 16px;
 
 $font-size-def: $rem-size;
+$line-height-def: 1.5;
 $font-weights: (
   thin: 100,
   light: 200,
@@ -38,11 +39,19 @@ $font-weights: (
   semibold: 600,
   bold: 900,
 );
+// FIXME другая схема именования
 $font-weight-def: map.get($font-weights, regular);
 $font-weight-bolder: map.get($font-weights, medium);
 $font-weight-bold: map.get($font-weights, semibold);
-$font-family-def: 'Inter', sans-serif;
-$line-height-def: 1.5;
+
+$font-accent-family: 'Haglos';
+$font-txt-family: 'Inter';
+// TODO см где используется
+// $xxx: 'source-sans-pro';
+// $yyy: 'Roboto';
+
+// TODO пересмотреть
+$font-default-family: $font-txt-family, sans-serif;
 
 $layout-breakpoints: (
   min: 375px,

@@ -1,8 +1,19 @@
 doctype html
-html
+html(lang='ru')
   head
-    title Test!
-    link(rel="stylesheet", href="./css/styles.scss")
-  body
-    h1 It`s a test page!
-    p Just an example
+    title #{ title }
+    meta(name='theme-color', content='#000000')/
+    meta(name='viewport', content='width=device-width, initial-scale=1')/
+    link(rel='stylesheet', href='./css/main.scss')
+    script(src='main.js', type='module', defer)
+  body.page
+    include templates/header
+    include templates/menuPanel
+    main.page__content
+      .layoutContainer
+        include screens/main/tmpl
+        include screens/fields/tmpl
+        include screens/accordion/tmpl
+        include screens/modal/tmpl
+        include screens/tooltip/tmpl
+    include templates/footer

@@ -1,7 +1,7 @@
 @use '../../../css/vars' as *;
 @use '../../../css/utils';
 
-.burgerPanel {
+.menuPanel {
   display: none;
 
   @media (--layout-df-md) {
@@ -14,7 +14,7 @@
     @include utils.box-covering(fixed, 2);
   }
 
-  &[data-open] {
+  &_opened {
     @media (--layout-df-md) {
       transform: translateX(0);
     }

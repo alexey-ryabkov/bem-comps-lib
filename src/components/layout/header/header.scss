@@ -37,7 +37,7 @@
     }
   }
 
-  &__burgerMenuButton {
+  &__openMenuPanelBtn {
     @include utils.position(16px, null, null, 16px);
 
     @media (--layout-mf-sm) {
@@ -48,6 +48,9 @@
   &__logo {
     display: inline-block;
     margin: 0 auto;
+    color: $color-primary;
+
+    @include utils.font(3rem, null, null, $font-accent-family);
 
     @media (--layout-mf-sm) {
       margin: 0 0 0 49px;

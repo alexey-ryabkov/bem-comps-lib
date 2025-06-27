@@ -1,0 +1,36 @@
+header.header.page__header
+  .layoutContainer
+    .header__panel
+      button#menu-panel-open.openMenuPanelBtn.header__openMenuPanelBtn.page__openMenuPanelBtn
+        svg.openMenuPanelBtn__icon(
+          xmlns='http://www.w3.org/2000/svg',
+          fill='currentColor'
+        )
+          use(href='./assets/icons/sprite.svg#burger')
+      span.header__logo #{ libName }
+        //- svg.header__logoIcon(
+        //-   xmlns='http://www.w3.org/2000/svg',
+        //-   fill='currentColor'
+        //- )
+        //-   rect(y='1', width='30', height='30')
+        //-   rect(x='38', width='32', height='32', rx='16')
+        //-   path(d='M78 0L110 32H78V0Z')
+      nav.header__menu
+        a.header__menuItem.header__menuItem_active(href) Компоненты
+        a.header__menuItem(href) Документация
+        a.header__menuItem(href) Контакты
+      label.toggler.header__themeToggler
+        input#theme-changer.toggler__input(type='checkbox')
+        span.toggler__state
+          svg.toggler__icon.toggler__icon_contrast_onLight(
+            xmlns='http://www.w3.org/2000/svg',
+            fill='currentColor'
+          )
+            use(href='./assets/icons/sprite.svg#sun')
+          span.toggler__control
+          svg.toggler__icon.toggler__icon_contrast_onDark(
+            xmlns='http://www.w3.org/2000/svg',
+            fill='currentColor'
+          )
+            use(href='./assets/icons/sprite.svg#сrescent')
+    //- h1.header__title #{ tagline }

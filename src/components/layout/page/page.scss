@@ -16,6 +16,22 @@
     }
   }
 
+  &_menuPanelOpened {
+    overflow: hidden;
+  }
+
+  /* &__openMenuPanelBtn {
+    @include utils.position(16px, null, null, 16px);
+
+    @media (--layout-mf-sm) {
+      top: 24px;
+    }
+  } */
+
+  &_menuPanelOpened &__openMenuPanelBtn {
+    opacity: 0;
+  }
+
   &__container {
     width: 100%;
     justify-self: center;

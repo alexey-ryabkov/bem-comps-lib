@@ -9,6 +9,8 @@
   ],
   "locals": {
     "title": "Библиотека BEM компонент",
+    "tagline": "Ещё одна ненужная библиотека компонент",
+    "libName": "Bemly",
     "aboutLink": "https://github.com/alexey-ryabkov/bem-comps-lib?tab=readme-ov-file"
   }
 }

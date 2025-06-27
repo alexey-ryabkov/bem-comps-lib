@@ -1,0 +1,37 @@
+.screen
+  .previewCard.tileList__item
+    .previewCard__placeholder
+      .previewCard__preview
+        span.tooltip.tooltip_opened
+          span.tooltip__bubble.tooltip__bubble_primary.tooltip__bubble_pos_top.tooltip__bubble_opened.compPreviews__previewTooltipBubble Helper text
+          svg.tooltip__trigger(xmlns='http://www.w3.org/2000/svg')
+            use(href='./assets/icons/sprite.svg#question')
+    h2.previewCard__title Tooltip
+  .componentDetail
+    h1.page__title Tooltip component
+    .componentDetail__component
+      span.tooltip
+        svg.tooltip__trigger(xmlns='http://www.w3.org/2000/svg')
+          use(href='./assets/icons/sprite.svg#question')
+        span.tooltip__bubble.tooltip__bubble_primary.tooltip__bubble_pos_right Helper text
+    .tabs.componentDetail__tabs
+      input#html-tab.tabs__tabControl.tabs__tabControl_tabNum_1(
+        type='radio',
+        name='tabs',
+        checked
+      )
+      input#css-tab.tabs__tabControl.tabs__tabControl_tabNum_2(
+        type='radio',
+        name='tabs'
+      )
+      .tabs__nav
+        label.tabs__tab(for='#html-tab')
+          span.tabs__tabTitle.tabs__tabTitle_tabNum_1 HTML
+        label.tabs__tab(for='#css-tab')
+          span.tabs__tabTitle.tabs__tabTitle_tabNum_2 CSS
+      .tabs__content.tabs__content_tabNum_1
+        .componentDetail__tabContent.
+          html          
+      .tabs__content.tabs__content_tabNum_2
+        .componentDetail__tabContent.
+          css
