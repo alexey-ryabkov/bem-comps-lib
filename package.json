@@ -30,6 +30,8 @@
     "@parcel/transformer-pug": "2.15.4",
     "@parcel/transformer-sass": "2.15.4",
     "@prettier/plugin-pug": "3.4.0",
+    "bem-cn": "3.0.1",
+    "classnames": "2.5.1",
     "parcel": "2.15.4",
     "postcss-normalize": "13.0.1",
     "prettier": "3.6.0",
