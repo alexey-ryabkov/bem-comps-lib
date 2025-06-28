@@ -1,0 +1,9 @@
+mixin tooltip(mix, position = 'bottom', isOpened = false, isPrimary = true)
+  -
+    const { b, cx } = locals;
+    const tooltip = b('tooltip');
+  span(class=cx(tooltip({ opened: isOpened }).mix(mix && mix.block)))
+    svg(class=cx(tooltip('trigger')), xmlns='http://www.w3.org/2000/svg')
+      use(href='./assets/icons/sprite.svg#question')
+    span(class=cx(tooltip('bubble', { pos: position, primary: isPrimary }))) 
+      block

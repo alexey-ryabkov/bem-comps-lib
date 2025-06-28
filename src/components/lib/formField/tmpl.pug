@@ -1,0 +1,31 @@
+mixin formField(mix, label, forField = '', validateStatus = '', statusText = '', isDisabled = false, isFullWidth = true, isInForm = true)
+  -
+    const { b, cx } = locals;
+    const form = isInForm ? b('form') : null
+    const formField = b('formField');
+    const validated = ['error', 'success'].includes(validateStatus);
+  div(
+    class=cx(
+      formField({ disabled: isDisabled, validity: validated ? validateStatus : false })
+        .mix(form && form('field'))
+        .mix(mix && mix.block),
+    )
+  )
+    if label
+      label(class=cx(formField('title')), for=forField)= label
+      div(class=cx(formField('field', { fullWidth: isFullWidth })))
+        block
+        svg(
+          class=cx(formField('icon', { error: true })),
+          xmlns='http://www.w3.org/2000/svg'
+        )
+          use(href='./assets/icons/sprite.svg#warning')
+        svg(
+          class=cx(formField('icon', { success: true })),
+          xmlns='http://www.w3.org/2000/svg'
+        )
+          use(href='./assets/icons/sprite.svg#checkInCircle') 
+      if statusText
+        .formField__status= statusText
+    else
+      block

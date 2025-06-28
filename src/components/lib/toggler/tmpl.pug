@@ -1,0 +1,30 @@
+mixin toggler(mix, label, isChecked = false, isDisabled = false, attrs = {})
+  -
+    const { b, cx } = locals;
+    const toggler = b('toggler');
+    const isIconLabel = typeof label === 'object';
+  label(class=cx(toggler({ opened: isOpened }).mix(mix && mix.block)))
+    input(
+      class=cx(toggler('input')),
+      type='checkbox',
+      checked=isChecked,
+      disabled=isDisabled
+    )&attributes(attrs)
+    span(class=cx(toggler('state')))
+      if isIconLabel
+        svg(
+          class=cx(toggler('icon', { contrast: label.off.contrast || false })),
+          xmlns='http://www.w3.org/2000/svg',
+          fill='currentColor'
+        )
+          use(href=`./assets/icons/sprite.svg#${label.off.icon}`)
+      span(class=cx(toggler('control')))
+      if isIconLabel
+        svg(
+          class=cx(toggler('icon', { contrast: label.on.contrast || false })),
+          xmlns='http://www.w3.org/2000/svg',
+          fill='currentColor'
+        )
+          use(href=`./assets/icons/sprite.svg#${label.on.icon}`)
+      else
+        span(class=cx(toggler('title')))= label

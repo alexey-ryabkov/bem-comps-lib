@@ -1,0 +1,24 @@
+include ../button/tmpl
+mixin tabs(mix, name = 'tabs', items = {}, openedNum = 0)
+  -
+    const { b, cx } = locals;
+    const tabs = b('tabs');
+    const entries = Object.entries(items);
+  div(class=cx(tabs.mix(mix && mix.block)))
+    each itemEntry, num in entries
+      - const [tab] = itemEntry;
+      input(
+        class=cx(tabs('tabControl', { tabNum: num + 1 })),
+        type='radio',
+        id=tab,
+        name=name,
+        checked=num === openedNum
+      )
+    div(class=cx(tabs('nav')))
+      each itemEntry, num in entries
+        - const [tab, { label }] = itemEntry;
+        label(class=cx(tabs('tab')), for=`#${tab}`)
+          span(class=cx(tabs('tabTitle', { tabNum: num + 1 })))= label
+    each itemEntry, num in entries
+      - const [, { content }] = itemEntry;
+      div(class=cx(tabs('content', { tabNum: num + 1 })))!= content
