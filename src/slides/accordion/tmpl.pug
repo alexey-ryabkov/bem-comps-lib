@@ -1,0 +1,47 @@
+include ../../components/lib/accordion/tmpl
+
+.slide
+  .previewCard.tileList__item
+    .previewCard__placeholder
+      .previewCard__preview.previewCard__preview_fullWidth
+        +accordion(
+  null,
+  [
+    { label: 'Accordion item #1!', content: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.' },
+    { label: 'Accordion item #2', content: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.' },
+  ],
+  0,
+  true,
+  true,
+)
+    h2.previewCard__title Accordion
+    .previewCard__desc Organism
+  .componentDetail
+    h1.page__title Accordion component
+    .componentDetail__component
+      +accordion(null, [
+  { label: 'Accordion item #1 with long long long long long long long long long long long long long long long long tilte', content: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.' },
+  { label: 'Accordion item #2!!', content: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.' },
+  { label: 'Accordion item #3', content: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.' },
+])
+    .tabs.componentDetail__tabs
+      input#html-tab.tabs__tabControl.tabs__tabControl_tabNum_1(
+        type='radio',
+        name='tabs',
+        checked
+      )
+      input#css-tab.tabs__tabControl.tabs__tabControl_tabNum_2(
+        type='radio',
+        name='tabs'
+      )
+      .tabs__nav
+        label.tabs__tab(for='#html-tab')
+          span.tabs__tabTitle.tabs__tabTitle_tabNum_1 HTML
+        label.tabs__tab(for='#css-tab')
+          span.tabs__tabTitle.tabs__tabTitle_tabNum_2 CSS
+      .tabs__content.tabs__content_tabNum_1
+        .componentDetail__tabContent.
+          html          
+      .tabs__content.tabs__content_tabNum_2
+        .componentDetail__tabContent.
+          css

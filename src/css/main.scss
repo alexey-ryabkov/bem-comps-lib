@@ -2,8 +2,8 @@
 @use 'inits';
 @use 'global';
 @use 'layout';
-@use '../screens/main/main';
-@use '../screens/fields/fields';
-@use '../screens/accordion/accordion';
-@use '../screens/modal/modal';
-@use '../screens/tooltip/tooltip';
+@use '../slides/main/main';
+@use '../slides/fields/fields';
+@use '../slides/accordion/accordion';
+@use '../slides/modal/modal';
+@use '../slides/tooltip/tooltip';

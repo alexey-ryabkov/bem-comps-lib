@@ -1,0 +1,33 @@
+include ../../components/lib/tooltip/tmpl
+include ../../components/lib/tabs/tmpl
+
+- const { render } = locals;
+.slide
+  .previewCard.tileList__item
+    .previewCard__placeholder
+      .previewCard__preview
+        +tooltip({ block: 'compPreviews__previewTooltipBubble' }, 'top', true)
+          | Полезная информация
+    h2.previewCard__title Tooltip
+  .componentDetail
+    h1.page__title Tooltip component
+    .componentDetail__component
+      +tooltip(null, 'right')
+        | Полезная информация
+      +tabs(
+  { block: 'componentDetail__tabs' },
+  'tooltip-tabs',
+  {
+    'html-tab12': {
+      label: 'HTML',
+      content: render(`
+.componentDetail__tabContent html! `),
+    },
+    'css-tab12': {
+      label: 'CSS',
+      content: render(`
+.componentDetail__tabContent css! `),
+    },
+  },
+  1,
+)

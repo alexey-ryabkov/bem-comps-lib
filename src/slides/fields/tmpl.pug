@@ -1,0 +1,78 @@
+include ../../components/lib/checkbox/tmpl
+include ../../components/lib/radio/tmpl
+include ../../components/lib/toggler/tmpl
+include ../../components/lib/textInput/tmpl
+include ../../components/lib/formField/tmpl
+- const { b, cx } = locals;
+.slide
+  .previewCard.tileList__item
+    .previewCard__placeholder
+      .previewCard__preview.previewCard__preview_scaledForMobile
+        form.form(action)
+          .form__cols
+            +formField
+              +checkbox(null, 'Default')
+              +checkbox(null, 'Checked', true)
+              +checkbox(null, 'Disabled', false, true)
+            +formField
+              +radio(null, 'Default', 'radio')
+              +radio(null, 'Selected', 'radio', true)
+              +radio(null, 'Disabled', 'radio', false, true)
+    h2.previewCard__title Custom form elements
+  .componentDetail
+    h1.page__title Custom form elements
+    form.componentDetail__component.componentDetail__component_columns.form
+      .componentDetail__componentColumn.componentDetail__componentColumn_fullWidth
+        +formField
+          +checkbox(null, 'Default')
+        +formField
+          +checkbox(null, 'Checked', true)
+        +formField
+          +checkbox(null, 'Disabled', false, true)
+      .componentDetail__componentColumn.componentDetail__componentColumn_fullWidth
+        +formField
+          +radio(null, 'Default', 'radio')
+        +formField
+          +radio(null, 'Selected', 'radio', true)
+        +formField
+          +radio(null, 'Disabled', 'radio', false, true)
+      .componentDetail__componentColumn.componentDetail__componentColumn_fullWidth
+        +formField
+          +toggler(null, 'Off')
+        +formField
+          +toggler(null, 'On', true)
+        +formField
+          +toggler(null, 'Disabled', true, true)
+    form.componentDetail__component.componentDetail__component_columns.form
+      .componentDetail__componentColumn.componentDetail__componentColumn_fullWidth
+        +formField(null, 'Label', 'default_input', '', 'Some status')
+          +textInput({ block: b('formField')('control', { type: 'textInput' }) }, 'default_input', { placeholder: 'Введите что-нибудь' })
+        +formField(null, 'Disabled', 'disabled_input', '', 'Some status', true)
+          +textInput({ block: b('formField')('control', { type: 'textInput' }) }, 'disabled_input', { placeholder: 'Сюда ничего не ввести' }, true)
+      .componentDetail__componentColumn.componentDetail__componentColumn_fullWidth
+        +formField(null, 'Success', 'success_input', 'success', 'Some status')
+          +textInput({ block: b('formField')('control', { type: 'textInput' }) }, 'success_input', { value: 'Верное значение' })
+        +formField(null, 'Error', 'error_input', 'error', 'Some status')
+          +textInput({ block: b('formField')('control', { type: 'textInput' }) }, 'error_input', { value: 'Неверное значение' })
+    .tabs.componentDetail__tabs
+      input#html-tab.tabs__tabControl.tabs__tabControl_tabNum_1(
+        type='radio',
+        name='tabs',
+        checked
+      )
+      input#css-tab.tabs__tabControl.tabs__tabControl_tabNum_2(
+        type='radio',
+        name='tabs'
+      )
+      .tabs__nav
+        label.tabs__tab(for='#html-tab')
+          span.tabs__tabTitle.tabs__tabTitle_tabNum_1 HTML
+        label.tabs__tab(for='#css-tab')
+          span.tabs__tabTitle.tabs__tabTitle_tabNum_2 CSS
+      .tabs__content.tabs__content_tabNum_1
+        .componentDetail__tabContent.
+          html
+
+      .tabs__content.tabs__content_tabNum_2
+        .componentDetail__tabContent.
+          css
