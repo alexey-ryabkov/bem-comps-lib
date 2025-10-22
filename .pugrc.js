@@ -4,8 +4,6 @@ const self = require('pug');
 const cn = require('classnames');
 const bem = require('bem-cn');
 
-// TODO перенести в утилиты
-
 /**
  * Creates bem block object
  * @type {BemCn}
@@ -17,7 +15,7 @@ const b = bem.block;
  * @param {any[]} args
  * @returns {string}
  */
-function cx(...args) {
+function c(...args) {
   return cn(
     ...args.map((arg) => {
       // transform BemCn objects to string
@@ -42,21 +40,22 @@ module.exports = {
   compileDebug: false,
   globals: ['window', 'document'],
   locals: {
-    title: 'Библиотека BEM компонент',
-    tagline: 'Ещё одна ненужная библиотека компонент',
+    title: 'Bemly UI-kit',
+    tagline: 'Ещё один ненужный UI-kit',
     libName: 'Bemly',
     aboutLink:
       'https://github.com/alexey-ryabkov/bem-comps-lib?tab=readme-ov-file',
-    // cards: JSON.parse(
-    //   fs.readFileSync(path.resolve(__dirname, 'src/cards.json')),
+    // slides: JSON.parse(
+    //   fs.readFileSync(path.resolve(__dirname, 'src/slides.json')),
     // ),
+    theme: { color: '#006d75' },
     renderTmpl: (/** @type {string} */ path, options = {}) =>
       self.renderFile(`${srcPath}/${path}`, options),
     render: (/** @type {string} */ tmpl, options = {}) =>
       self.render(tmpl, options),
     srcPath,
     self,
-    cx,
     b,
+    c,
   },
 };

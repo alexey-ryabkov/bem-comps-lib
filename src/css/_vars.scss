@@ -2,27 +2,28 @@
 @use 'sass:map';
 
 $white: #fff;
-$black: #000;
+$black: #002329;
 $cyan: #006d75;
-$cyan-darker: color.adjust($cyan, $lightness: -15%);
-$cyan-light: #b5f5ec;
+$cyan-lighter: color.adjust($cyan, $lightness: 10%, $hue: -5deg);
+$cyan-darker: color.adjust($cyan, $lightness: -5%);
 $pink: #f784ad;
 $pink-darker: color.adjust($pink, $lightness: -15%);
-$green-light: #95de64;
+$green: #389e0d;
 $red: #f03d3e;
-$orange: #d84910;
-$grey-0: #f9fafc; // #f4f4f4
+$violet: #7a0093;
+$orange: #d46b08;
+$grey-0: #f9fafc;
 $grey-1: #f8f9fa;
-$grey-2: #dde2e5;
-$grey-3: #acb5bd;
-$grey-4: #495057;
+$grey-2: #bdd2d6;
+$grey-3: #83a1a6;
+$grey-4: #32484c;
 $grey-4-lighter: color.adjust($grey-4, $lightness: 12%);
 
 $color-error: $red;
-$color-success: $green-light;
-$color-notify: $orange;
+$color-success: $green;
+$color-notify: $pink;
 $color-primary: $cyan;
-$color-secondary: $pink;
+$color-secondary: $violet;
 $color-alternate: $orange;
 $color-primary-active: $cyan-darker;
 $color-secondary-active: $pink-darker;
@@ -34,23 +35,21 @@ $line-height-def: 1.5;
 $font-weights: (
   thin: 100,
   light: 200,
+  semilight: 300,
   regular: 400,
-  medium: 500,
-  semibold: 600,
-  bold: 900,
+  medium: 600,
+  semibold: 700,
+  bold: 800,
+  thick: 900,
 );
-// FIXME другая схема именования
 $font-weight-def: map.get($font-weights, regular);
+$font-weight-lighter: map.get($font-weights, semilight);
 $font-weight-bolder: map.get($font-weights, medium);
-$font-weight-bold: map.get($font-weights, semibold);
+$font-weight-bold: $font-weight-bolder;
 
-$font-accent-family: 'Haglos';
+$font-accent-family: 'Moleska';
 $font-txt-family: 'Inter';
-// TODO см где используется
-// $xxx: 'source-sans-pro';
-// $yyy: 'Roboto';
 
-// TODO пересмотреть
 $font-default-family: $font-txt-family, sans-serif;
 
 $layout-breakpoints: (

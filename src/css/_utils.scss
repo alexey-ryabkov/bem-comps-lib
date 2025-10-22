@@ -109,7 +109,7 @@
 }
 
 @mixin font-def {
-  @include font($font-size-def, $line-height-def);
+  @include font($font-size-def, $line-height-def, $font-weight-def);
 }
 
 @mixin text-interactive {
