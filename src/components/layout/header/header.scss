@@ -2,7 +2,6 @@
 @use '../../../css/utils';
 
 .header {
-  padding-bottom: 69px;
   border-bottom: 1px solid $grey-2;
   background: var(--content-bg-color, $white);
 
@@ -10,50 +9,35 @@
     border-bottom-width: 2px;
   }
 
-  &:not(&_compact) {
-    @media (--layout-mf-lg) {
-      padding-bottom: 77px;
-    }
-  }
-
-  &_compact {
-    padding-bottom: 0;
-    border: none;
-    background: transparent;
-  }
-
   &__panel {
     width: 100%;
     box-sizing: border-box;
-    padding-top: 16px;
-    padding-bottom: 16px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 
-    @include utils.box-aligning(36px);
+    @include utils.box-aligning(2.25rem);
 
     @media (--layout-mf-sm) {
-      padding-top: 24px;
-      padding-bottom: 24px;
-      gap: 56px;
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+      gap: 3.5rem;
     }
   }
 
   &__openMenuPanelBtn {
-    @include utils.position(16px, null, null, 16px);
-
-    @media (--layout-mf-sm) {
-      top: 24px;
-    }
+    position: absolute;
   }
 
   &__logo {
     display: inline-block;
     margin: 0 auto;
     color: $color-primary;
+    transform: translateY(0.375rem);
 
     @include utils.font(3rem, null, null, $font-accent-family);
 
     @media (--layout-mf-sm) {
-      margin: 0 0 0 49px;
+      margin: 0 0 0 3rem;
     }
 
     @media (--layout-mf-md) {
@@ -65,30 +49,12 @@
   &__logoIcon {
     color: var(--text-primary-color, $black);
 
-    @include utils.size(110px, 32px);
-  }
-
-  &_compact &__logoIcon {
-    color: $black;
-  }
-
-  &__title {
-    margin: 24px 0 0;
-    color: var(--text-regular-color, $grey-4);
-
-    @include utils.font(28px, 38px, $font-weight-def);
-
-    @media (--layout-mf-lg) {
-      color: var(--text-contrast-color, $black);
-      margin-top: 17px;
-
-      @include utils.font(50px, 64px, $font-weight-bolder);
-    }
+    @include utils.size(6.875rem, 2rem);
   }
 
   &__menu {
     display: none;
-    gap: 24px;
+    gap: 1.5rem;
 
     @media (--layout-mf-sm) {
       display: flex;

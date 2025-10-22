@@ -4,17 +4,17 @@
 .menu {
   display: grid;
   grid-auto-flow: row;
-  row-gap: 32px;
+  row-gap: 2rem;
   align-content: start;
 
   &__list {
     display: grid;
     grid-auto-flow: row;
-    row-gap: 4px;
-    margin-top: 16px;
+    row-gap: 0.25rem;
+    margin-top: 1rem;
 
     @media (--layout-df-md) {
-      row-gap: 16px;
+      row-gap: 1rem;
     }
   }
 
@@ -22,7 +22,7 @@
     color: var(--text-contrast-color, $black);
     margin: 0;
 
-    @include utils.font(20px, 26px, $font-weight-def);
+    @include utils.font(1.25rem, 1.625rem, $font-weight-def);
 
     @media (--layout-df-md) {
       color: var(--text-pale-color, $grey-3);
@@ -33,7 +33,7 @@
     color: var(--text-contrast-color, $black);
     text-decoration: none;
 
-    @include utils.font(14px, 22px);
+    @include utils.font(0.875rem, 1.375rem);
 
     @media (--layout-df-md) {
       @include utils.font-def;

@@ -1,13 +1,13 @@
 @use '../../../css/utils';
 
 .layoutContainer {
-  max-width: 1110px;
-  min-width: 343px;
-  padding: 0 16px;
+  max-width: 69.375rem;
+  min-width: 21.4375rem;
+  padding: 0 1rem;
 
   @include utils.box-centered;
 
   @media (--layout-mf-lg) {
-    padding: 0 32px;
+    padding: 0 2rem;
   }
 }
