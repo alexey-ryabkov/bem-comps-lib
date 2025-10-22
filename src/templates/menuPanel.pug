@@ -1,46 +1,48 @@
-#menu-panel.menuPanel.menuPanel_forHeaderTransparent.menuPanel_noTopSeparator
-  button#menu-panel-close.menuPanel__closeButton
-    svg.menuPanel__closeButtonIcon(
+-
+  const menu = _b('menu');
+  const menuPanel = _b('menuPanel');
+#menu-panel(class=_c(menuPanel({ forHeaderTransparent: true, noTopSeparator: true })))
+  button#menu-panel-close(class=_c(menuPanel('closeButton')))
+    svg(
+      class=_c(menuPanel('closeButtonIcon')),
       xmlns='http://www.w3.org/2000/svg',
       fill='currentColor'
     )
       use(href='./assets/icons/sprite.svg#cross')
-  .menuPanel__content
-    .menuPanel__themeTogglerBox
-      .menuPanel__contentGroup
-        .menuPanel__themeToggler
-          label.menuPanel__themeTogglerLabel(for='theme-changer-alt').
-            Темная тема
-          label.toggler
-            input#theme-changer-alt.toggler__input(type='checkbox')
-            span.toggler__state
-              span.toggler__control
-    aside.menu.menuPanel__menu
-      section.menuPanel__contentGroup
-        .menu__group
-          h4.menu__title Компоненты
-          nav.menu__list
-            a.menu__item(href='#') Кастомные элементы форм
-            a.menu__item(href='#') Аккордеон
-            a.menu__item(href='#') Модальное окно
-            a.menu__item(href='#') Тултип
-      section.menuPanel__contentGroup
-        .menu__group
-          h4.menu__title Документация
-          nav.menu__list
-            a.menu__item(href='#') Кастомные элементы форм
-            a.menu__item(href='#') Аккордеон
-            a.menu__item(href='#') Модальное окно
-            a.menu__item(href='#') Тултип
-      section.menuPanel__contentGroup
-        .menu__group
-          h4.menu__title Контакты
-          nav.menu__list
-            a.menu__item(
+  div(class=_c(menuPanel('content')))
+    div(class=_c(menuPanel('themeTogglerBox')))
+      div(class=_c(menuPanel('contentGroup')))
+        div(class=_c(menuPanel('themeToggler')))
+          label(class=_c(menuPanel('themeTogglerLabel')), for='theme-changer-alt') Темная тема
+          +toggler(undefined, { id: 'theme-changer-alt' })
+    aside(class=_c(menu.mix(menuPanel('menu'))))
+      div(class=_c(menuPanel('contentGroup')))
+        div(class=_c(menu('group')))
+          h4(class=_c(menu('title'))) Компоненты
+          nav(class=_c(menu('list')))
+            a(class=_c(menu('item')), href='#') Кастомные элементы форм
+            a(class=_c(menu('item')), href='#') Аккордеон
+            a(class=_c(menu('item')), href='#') Модальное окно
+            a(class=_c(menu('item')), href='#') Тултип
+      div(class=_c(menuPanel('contentGroup')))
+        div(class=_c(menu('group')))
+          h4(class=_c(menu('title'))) Документация
+          nav(class=_c(menu('list')))
+            a(class=_c(menu('item')), href='#') Кастомные элементы форм
+            a(class=_c(menu('item')), href='#') Аккордеон
+            a(class=_c(menu('item')), href='#') Модальное окно
+            a(class=_c(menu('item')), href='#') Тултип
+      div(class=_c(menuPanel('contentGroup')))
+        div(class=_c(menu('group')))
+          h4(class=_c(menu('title'))) Контакты
+          nav(class=_c(menu('list')))
+            a(
+              class=_c(menu('item')),
               href='mailto://RyabkovAN23@st.ithub.ru',
               target='_blank'
             ) Email
-            a.menu__item(
+            a(
+              class=_c(menu('item')),
               href='https://github.com/alexey-ryabkov/',
               target='_blank'
             ) Github
