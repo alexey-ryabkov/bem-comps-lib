@@ -1,30 +1,27 @@
-mixin toggler(mix, label, isChecked = false, isDisabled = false, attrs = {})
+mixin toggler({ mix, label = '' } = {}, attrs = {})
   -
-    const { b, cx } = locals;
+    const { b, c } = locals;
     const toggler = b('toggler');
     const isIconLabel = typeof label === 'object';
-  label(class=cx(toggler({ opened: isOpened }).mix(mix && mix.block)))
-    input(
-      class=cx(toggler('input')),
-      type='checkbox',
-      checked=isChecked,
-      disabled=isDisabled
-    )&attributes(attrs)
-    span(class=cx(toggler('state')))
+  label(class=c(toggler.mix(mix && mix.block)))
+    input(class=c(toggler('input')), type='checkbox')&attributes(attrs)
+    span(class=c(toggler('state')))
       if isIconLabel
         svg(
-          class=cx(toggler('icon', { contrast: label.off.contrast || false })),
+          class=c(toggler('icon', { contrast: label.off.contrast || false })),
           xmlns='http://www.w3.org/2000/svg',
           fill='currentColor'
         )
-          use(href=`./assets/icons/sprite.svg#${label.off.icon}`)
-      span(class=cx(toggler('control')))
+          use(
+            href=`./assets/icons/sprite.svg#${label.off.icon || 'togglerOff'}`
+          )
+      span(class=c(toggler('control')))
       if isIconLabel
         svg(
-          class=cx(toggler('icon', { contrast: label.on.contrast || false })),
+          class=c(toggler('icon', { contrast: label.on.contrast || false })),
           xmlns='http://www.w3.org/2000/svg',
           fill='currentColor'
         )
-          use(href=`./assets/icons/sprite.svg#${label.on.icon}`)
+          use(href=`./assets/icons/sprite.svg#${label.on.icon || 'togglerOn'}`)
       else
-        span(class=cx(toggler('title')))= label
+        span(class=c(toggler('title')))= label

@@ -1,13 +1,8 @@
-mixin textInput(mix, name = '', attrs = {}, isDisabled = false, isFullWidth = true, isCompact = false)
+mixin textInput({ mix, isFullWidth = true, isCompact = false } = {}, attrs = {})
   -
-    const { b, cx } = locals;
+    const { b, c } = locals;
     const textInput = b('textInput');
   input(
-    id=name,
-    class=cx(textInput({ fullWidth: isFullWidth, compact: isCompact }).mix(mix && mix.block)),
-    type='text',
-    name=name,
-    value=value,
-    placeholder=placeholder,
-    disabled=isDisabled
+    class=c(textInput({ fullWidth: isFullWidth, compact: isCompact }).mix(mix && mix.block)),
+    type='text'
   )&attributes(attrs)

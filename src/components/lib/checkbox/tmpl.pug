@@ -1,21 +1,16 @@
-mixin checkbox(mix, label, isChecked = false, isDisabled = false, attrs = {})
+mixin checkbox({ mix, label }, attrs = {})
   -
-    const { b, cx } = locals;
+    const { b, c } = locals;
     const checkbox = b('checkbox');
     const isIconLabel = typeof label === 'object';
-  label(class=cx(checkbox.mix(mix && mix.block)))
-    input(
-      class=cx(checkbox('input')),
-      type='checkbox',
-      checked=isChecked,
-      disabled=isDisabled
-    )&attributes(attrs)
-    span(class=cx(checkbox('state')))
-      span(class=cx(checkbox('control'), '_noAnimateOnload'))
+  label(class=c(checkbox.mix(mix && mix.block)))
+    input(class=c(checkbox('input')), type='checkbox')&attributes(attrs)
+    span(class=c(checkbox('state')))
+      span(class=c(checkbox('control'), '_noAnimateOnload'))
         svg(
-          class=cx(checkbox('icon')),
+          class=c(checkbox('icon')),
           xmlns='http://www.w3.org/2000/svg',
           fill='currentColor'
         )
           use(href='./assets/icons/sprite.svg#check')
-      span(class=cx(checkbox('title')))= label
+      span(class=c(checkbox('title')))= label

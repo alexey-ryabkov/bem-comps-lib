@@ -1,18 +1,16 @@
-include ../button/tmpl
-mixin modal(mix, title, id = 'modal', isOpened = false, isCompact = false, isClosable = true, hasNoViel = false)
+mixin modal({ mix, title = '', isOpened = false, isCompact = false, isClosable = true, hasNoViel = false } = {}, attrs = {})
   -
-    const { b, cx } = locals;
+    const { b, c } = locals;
     const modal = b('modal');
   div(
-    class=cx(modal({ opened: isOpened, compact: isCompact, noVeil: hasNoViel }).mix(mix && mix.block)),
-    id=id
-  )
-    div(class=cx(modal('window')))
-      if title
-        h5(class=cx(modal('title')))= title
-      div(class=cx(modal('content')))
+    class=c(modal({ opened: isOpened, compact: isCompact, noVeil: hasNoViel }).mix(mix && mix.block))
+  )&attributes(attrs)
+    div(class=c(modal('window')))
+      if title.length
+        h5(class=c(modal('title')))= title
+      div(class=c(modal('content')))
         block
       if isClosable
-        +button({ block: modal('closeButton') }, '', 'primary', 150, false, { id: `${id}-close` })
-          svg(class=cx(modal('closeButtonIcon')), xmlns='http://www.w3.org/2000/svg')
-            use(href='./assets/icons/sprite.svg#cross')
+        button(class=c(modal('closeButton')))
+          svg(class=c(modal('closeButtonIcon')), xmlns='http://www.w3.org/2000/svg')
+            use(href='./assets/icons/sprite.svg#cross') 

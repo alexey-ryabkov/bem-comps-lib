@@ -181,10 +181,10 @@
     border-width: $size $size 0 $size;
     border-color: $color transparent transparent transparent;
   } @else if $direction == left {
-    border-width: $size $size $size 0;
+    border-width: $size 0 $size $size;
     border-color: transparent transparent transparent $color;
   } @else if $direction == right {
-    border-width: $size 0 $size $size;
+    border-width: $size $size $size 0;
     border-color: transparent $color transparent transparent;
   } @else if $direction == top-left {
     border-width: $size $size 0 0;

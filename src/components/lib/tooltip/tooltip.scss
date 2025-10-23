@@ -20,21 +20,21 @@ $parent-with-tip-size: calc(100% + $tip-size);
   }
 
   &__trigger {
-    @include utils.size(24px);
+    @include utils.size(1.5rem);
   }
 
   &__bubble {
     --tb-color: var(--text-contrast-color, $black);
 
     display: none;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     box-shadow: 0 2px 4px 0 rgb(33 36 41 / 5%);
     text-align: center;
-    font-size: 16px;
-    min-height: 24px;
-    padding: 13px 21px 8px;
-    width: 87px;
+    min-height: 1.5rem;
+    padding: 0.75rem 1.25rem;
+    max-width: 8rem;
 
+    @include utils.font($font-size-def, normal, $font-weight-lighter);
     @include utils.color($grey-2, var(--tb-color, $black));
 
     &::after {
@@ -79,7 +79,7 @@ $parent-with-tip-size: calc(100% + $tip-size);
       &::after {
         left: 100%;
 
-        @include tip(right);
+        @include tip(left);
         @include utils.centered(vertical);
       }
     }
@@ -92,17 +92,10 @@ $parent-with-tip-size: calc(100% + $tip-size);
       &::after {
         left: $negative-tip-size;
 
-        @include tip(left);
+        @include tip(right);
         @include utils.centered(vertical);
       }
     }
-  }
-
-  &_opened &__bubble {
-    position: relative;
-    left: auto;
-    transform: none;
-    margin-bottom: $tip-size;
   }
 
   &_opened &__bubble,

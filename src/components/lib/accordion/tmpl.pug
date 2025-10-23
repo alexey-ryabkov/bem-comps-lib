@@ -1,18 +1,18 @@
 include ../button/tmpl
-mixin accordion(mix, items = [], openedNum = null, isCompact = false, isFullWidth = false)
+mixin accordion({mix, items = [], openedNum = null, isCompact = false, isFullWidth = false} = {})
   -
-    const { b, cx } = locals;
+    const { b, c } = locals;
     const accordion = b('accordion');
   div(
-    class=cx(accordion({ compact: isCompact, fullWidth: isFullWidth }).mix(mix && mix.block))
+    class=c(accordion({ compact: isCompact, fullWidth: isFullWidth }).mix(mix && mix.block))
   )
     each item, num in items
       - const { label, content } = item;
-      details(class=cx(accordion('item')), open=num === openedNum)
+      details(class=c(accordion('item')), open=num === openedNum)
         //- details.accordion__item(open)
-        summary(class=cx(accordion('itemSummary')))= label
+        summary(class=c(accordion('itemSummary')))= label
           svg(
-            class=cx(accordion('itemSummaryMarker')),
+            class=c(accordion('itemSummaryMarker')),
             xmlns='http://www.w3.org/2000/svg'
           )
             use(href='./assets/icons/sprite.svg#arrow')

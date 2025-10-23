@@ -1,19 +1,29 @@
-(function() {
-    const close = document.getElementById('modal-close');
-    const modal = document.getElementById('modal');
-    const modalOpen = document.getElementById('modal-open');
+document.addEventListener('DOMContentLoaded', () => {
+  document.body.querySelectorAll('[data-modal-trigger]').forEach((el) => {
+    const trigger = /** @type {HTMLElement} */ (el);
 
-    if (!close || !modalOpen || !modal) {
-        return;
-    }
+    trigger?.addEventListener('click', (e) => {
+      e.preventDefault();
 
-    modalOpen.addEventListener('click', () => {
-        modal.style.display = 'block';
-        document.body.overflow = 'hidden';
+      const modalId = trigger.dataset.modalTrigger;
+      if (modalId?.length) {
+        /** @type HTMLElement|null **/
+        const modal = document.body.querySelector(`.modal[id="${modalId}"]`);
+        modal && (modal.style.display = 'block');
+        document.body.style.overflow = 'hidden';
+      }
     });
+  });
+  document.body.querySelectorAll('.modal').forEach((el) => {
+    const modal = /** @type {HTMLElement} */ (el);
 
-    close.addEventListener('click', () => {
-        modal.style.display = 'none';
-        document.body.overflow = 'initial';
+    /** @type HTMLElement|null **/
+    const closeBtn = modal.querySelector('.modal__closeButton');
+
+    closeBtn?.addEventListener('click', (e) => {
+      e.preventDefault();
+      modal.style.display = 'none';
+      document.body.style.overflow = 'initial';
     });
-})();
+  });
+});

@@ -1,0 +1,27 @@
+include ../../lib/button/tmpl
+include ../../lib/tabs/tmpl
+mixin slide({mix, name, title})
+  -
+    const { b, c } = locals;
+    const slide = b('slide');
+  section(class=_c(slide.mix(mix && mix.block)))
+    div(class=_c(slide('card')))
+      h2(class=_c(slide('title')))= title
+      +tabs({
+        name: name + '-slide',
+        items: {
+          ['slide-' + name + '-preview']: {
+            label: 'Описание',
+            content: _t('slides/' + name + '/preview.pug', locals)
+          },
+          ['slide-' + name + '-detail']: {
+            label: 'Попробовать',
+            content: _t('slides/' + name + '/detail.pug', locals)
+          },
+        },
+        mix: { 
+          block: slide('tabs'),
+          title: slide('tabTitle'), 
+          content: slide('tabContent')
+        }
+      })

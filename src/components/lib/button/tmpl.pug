@@ -1,8 +1,8 @@
-mixin button(mix, text, variant = 'primary', width = null, isDisabled = false, attrs = {})
+mixin button({ mix, text, variant = 'primary', width, isFullWidth = false, isDisabled = false } = {}, attrs = {})
   -
-    const { b, cx } = locals;
+    const { b, c } = locals;
     const button = b('button');
   button(
-    class=cx(button({ var: variant, width: width || false }).mix(mix && mix.block)),
+    class=c(button({ var: variant, width: width || undefined, fullWidth: !width && isFullWidth }).mix(mix && mix.block)),
     disabled=isDisabled
   )&attributes(attrs)= text || block

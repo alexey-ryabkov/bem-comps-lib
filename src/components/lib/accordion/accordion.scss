@@ -36,7 +36,7 @@
 
   &__itemSummary {
     padding: 1.5em 2em;
-    color: var(--text-contrast-color, $black);
+    color: var(--text-primary-color, $black);
 
     @include utils.text-interactive;
     @include utils.box-aligning(0.63em);

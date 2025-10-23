@@ -2,4 +2,189 @@
 @use '../../../css/utils';
 
 .slide {
+  &__card {
+    --slide-card-paddings: 1rem;
+
+    box-shadow: 0 2px 4px 0 rgb(33 36 41 / 5%);
+    padding: var(--slide-card-paddings);
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+
+    @include utils.color(inherit, var(--content-bg-color, $white));
+
+    @media (--layout-mf-md) {
+      --slide-card-paddings: 1.5rem;
+
+      border-radius: 0.75rem;
+    }
+
+    @media (--layout-mf-lg) {
+      --slide-card-paddings: 2rem;
+    }
+  }
+
+  &__title {
+    color: var(--text-primary-color, $black);
+    margin: 0 0 0.75rem;
+
+    @include utils.font(1.25rem, 1.625rem, $font-weight-def);
+
+    @media (--layout-mf-md) {
+      margin-bottom: calc(var(--slide-card-paddings) - 0.5rem);
+
+      @include utils.font(1.75rem, 2.375rem);
+    }
+  }
+
+  &__subTitle {
+    margin: 0 0 calc(var(--slide-card-paddings) - 0.75rem);
+    color: var(--text-primary-color, $black);
+
+    @include utils.font(1.1rem, normal, $font-weight-def);
+
+    @media (--layout-mf-md) {
+      @include utils.font(1.375rem, normal, $font-weight-def);
+    }
+  }
+
+  &__tabTitle {
+    @media (--layout-df-md) {
+      border-bottom-width: 3px;
+      padding-bottom: 0.25rem;
+
+      @include utils.font(0.875rem, false, $font-weight-lighter);
+    }
+  }
+
+  &__tabContent {
+    padding-top: var(--slide-card-paddings);
+
+    &::before {
+      content: '';
+      display: block;
+      background: $grey-2;
+      margin-top: calc(-1 * var(--slide-card-paddings));
+
+      @include utils.position(null, null, null, 0);
+      @include utils.size(100%, 1px);
+    }
+  }
+
+  &__tabContentWrapper {
+    &_preview {
+      display: flex;
+      flex-direction: column;
+      gap: var(--slide-card-paddings);
+
+      @media (--layout-mf-md) {
+        flex-direction: row;
+      }
+    }
+
+    &_detail {
+      min-height: 12rem;
+    }
+  }
+
+  &__preview {
+    min-height: 12rem;
+    min-width: 18rem;
+    box-sizing: border-box;
+    pointer-events: none;
+    user-select: none;
+    flex: 0 0 auto;
+
+    @media (--layout-mf-lg) {
+      border-bottom: 0;
+      padding: 0;
+      margin: 0;
+    }
+
+    &_constrained_width {
+      width: 18rem;
+
+      @media (--layout-df-md) {
+        @include utils.box-centered;
+        @include utils.box-centering;
+      }
+    }
+
+    &_constrained_height {
+      height: 12rem;
+
+      @media (--layout-df-md) {
+        width: 100%;
+
+        @include utils.box-centered;
+        @include utils.box-centering;
+      }
+    }
+  }
+
+  &__previewWrapper {
+    position: relative;
+    margin: auto;
+
+    &_fullWidth {
+      width: 100%;
+    }
+
+    &_fullSize {
+      @include utils.size(100%);
+    }
+
+    /* &_scaledForMobile {
+      transform: scale(0.6);
+
+      @media (--layout-mf-sm) {
+        transform: scale(0.8);
+      }
+
+      @media (--layout-mf-md) {
+        transform: scale(0.9);
+      }
+
+      @media (--layout-mf-lg) {
+        transform: scale(1);
+      }
+    } */
+  }
+
+  &__desc {
+    color: var(--text-regular-color, $black);
+
+    @include utils.font(0.875rem, false, $font-weight-lighter);
+
+    @media (--layout-mf-lg) {
+      @include utils.font-def;
+    }
+  }
+
+  &__detail {
+    color: var(--text-contrast-color, $black);
+    font-size: 1rem;
+
+    &_columns {
+      @include utils.box-stack(1em);
+
+      @media (--layout-mf-sm) {
+        flex-direction: row;
+      }
+    }
+
+    & + & {
+      margin-top: 1em;
+    }
+  }
+
+  &__detailColumn {
+    @include utils.box-stack(1em);
+
+    &_fullWidth {
+      flex-grow: 1;
+    }
+  }
 }

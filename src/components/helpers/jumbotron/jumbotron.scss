@@ -1,0 +1,84 @@
+@use '../../../css/vars' as *;
+@use '../../../css/utils';
+
+.jumbotron {
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1rem;
+  display: flex;
+  gap: 1.5rem;
+
+  @media (--layout-mf-md) {
+    flex-direction: row;
+    padding: 0 1.5rem;
+    gap: 2.5rem;
+  }
+
+  @media (--layout-mf-lg) {
+    padding: 0 2rem;
+    gap: 3rem;
+  }
+
+  &__pictureBox {
+    @media (--layout-df-md) {
+      transform: translateX(-0.6rem);
+    }
+  }
+
+  &__picture {
+    @include utils.size(10rem, 12.963rem);
+
+    @media (--layout-mf-md) {
+      @include utils.size(12rem, 15.5rem);
+    }
+
+    @media (--layout-mf-lg) {
+      @include utils.size(15.1875rem, 19.6875rem);
+    }
+  }
+
+  &__textBox {
+    text-align: center;
+
+    @media (--layout-mf-md) {
+      transform: translateY(-1rem);
+      text-align: left;
+    }
+
+    @media (--layout-mf-lg) {
+      transform: translateY(-1.25rem);
+    }
+  }
+
+  &__title {
+    color: var(--text-primary-color, $black);
+    margin: 0 0 1rem;
+
+    @include utils.font(1.75rem, false, $font-weight-bold);
+
+    @media (--layout-mf-md) {
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+    }
+
+    @media (--layout-mf-lg) {
+      margin-bottom: 2rem;
+      font-size: 2.625rem;
+    }
+  }
+
+  &__desc {
+    color: var(--text-regular-color, $black);
+
+    @include utils.font(1rem, $line-height-def, $font-weight-lighter);
+
+    @media (--layout-mf-md) {
+      font-size: 1.25rem;
+    }
+
+    @media (--layout-mf-lg) {
+      font-size: 1.5rem;
+    }
+  }
+}

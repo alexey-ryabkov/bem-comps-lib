@@ -1,17 +1,10 @@
-mixin radio(mix, label, name = '', isChecked = false, isDisabled = false, attrs = {})
+mixin radio({ mix, label }, attrs = {})
   -
-    const { b, cx } = locals;
+    const { b, c } = locals;
     const radio = b('radio');
     const isIconLabel = typeof label === 'object';
-  label(class=cx(radio.mix(mix && mix.block)))
-    input(
-      class=cx(radio('input')),
-      type='radio',
-      name=name,
-      value=value,
-      checked=isChecked,
-      disabled=isDisabled
-    )&attributes(attrs)
-    span(class=cx(radio('state')))
-      span(class=cx(radio('control')))
-      span(class=cx(radio('title')))= label
+  label(class=c(radio.mix(mix && mix.block)))
+    input(class=c(radio('input')), type='radio')&attributes(attrs)
+    span(class=c(radio('state')))
+      span(class=c(radio('control')))
+      span(class=c(radio('title')))= label

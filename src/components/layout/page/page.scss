@@ -2,9 +2,19 @@
 @use '../../../css/utils';
 
 .page {
+  --slides-gap: 3rem;
+
   height: 100%;
 
   @include utils.box-stack;
+
+  @media (--layout-mf-md) {
+    --slides-gap: 4.25rem;
+  }
+
+  @media (--layout-mf-md) {
+    --slides-gap: 5.75rem;
+  }
 
   &_menuPanelOpened {
     overflow: hidden;
@@ -16,7 +26,7 @@
 
   &__content {
     background: var(--page-bg-color, $grey-0);
-    padding: 5.75rem 0;
+    padding: var(--slides-gap) 0;
     flex-grow: 1;
   }
 
@@ -35,7 +45,7 @@
 
   &__slide {
     & + & {
-      margin-top: 5.75rem;
+      margin-top: var(--slides-gap);
     }
   }
 }

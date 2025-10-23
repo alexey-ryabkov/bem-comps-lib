@@ -11,19 +11,6 @@ $validity-status-colors: (
 
   @include utils.box-stack(0.31em, flex-start);
 
-  &_onPreviewCard {
-    font-size: 10px;
-    width: 90%;
-
-    @media (--layout-mf-sm) {
-      font-size: 12px;
-    }
-
-    @media (--layout-mf-lg) {
-      width: 100%;
-    }
-  }
-
   &__title {
     display: inline-block;
     color: $grey-3;
@@ -43,10 +30,6 @@ $validity-status-colors: (
     &_fullWidth {
       width: 100%;
     }
-  }
-
-  &_onPreviewCard &__field {
-    width: 100%;
   }
 
   &__icon {

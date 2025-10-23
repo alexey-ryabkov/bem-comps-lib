@@ -6,29 +6,29 @@
     @include utils.box-aligning(14px);
 
     @media (--layout-mf-lg) {
-      gap: 42px;
+      gap: 2.625rem;
     }
 
     @media (--layout-mf-md) {
-      padding: 14px;
+      padding: 0.875rem;
       width: 100%;
       box-sizing: border-box;
     }
   }
 
   &__fields {
-    @include utils.box-stack(10px);
+    @include utils.box-stack(0.875rem);
   }
 
-  &__feild {
-    gap: 14px;
+  &__field {
+    // ...
   }
 
   &__submitButton {
-    min-width: 175px;
+    min-width: 11rem;
   }
 
   &__fields + &__submitButton {
-    margin-top: 20px;
+    margin-top: 1.25rem;
   }
 }

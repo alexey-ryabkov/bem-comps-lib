@@ -1,8 +1,9 @@
+@use 'sass:color';
 @use '../../../css/vars' as *;
 @use '../../../css/utils';
 
 .modal {
-  background: rgb(196 196 196 / 50%);
+  background: color.change($grey-4, $alpha: 0.5);
   display: none;
 
   @include utils.box-covering(fixed, 1);

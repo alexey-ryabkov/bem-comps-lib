@@ -31,7 +31,7 @@
   &__logo {
     display: inline-block;
     margin: 0 auto;
-    color: $color-primary;
+    color: var(--logo-color, $color-primary);
     transform: translateY(0.375rem);
 
     @include utils.font(3rem, null, null, $font-accent-family);

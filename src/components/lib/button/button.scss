@@ -2,17 +2,17 @@
 @use '../../../css/utils';
 
 .button {
-  height: 3em;
   line-height: normal;
-  padding: 0.94em 0.94em 0.88;
+  padding: 0.94em 0.94em 0.88em;
+  transition: transform 0.2s linear;
   box-sizing: border-box;
   border-radius: 0.5em;
   text-align: center;
-  border: 0;
+  user-select: none;
   cursor: pointer;
-  transition: transform 0.2s linear;
+  border: 0;
 
-  @include utils.font(16px, false, $font-weight-bolder, Roboto);
+  @include utils.font($font-size-def, normal, $font-weight-bolder);
 
   &:active {
     transform: translateY(1px);
@@ -23,7 +23,7 @@
     pointer-events: none;
   }
 
-  &_inStack {
+  /* &_inStack {
     font-size: 12px;
     width: 75%;
 
@@ -34,7 +34,7 @@
     @media (--layout-mf-md) {
       font-size: 16px;
     }
-  }
+  } */
 
   &_var_primary {
     @include utils.color($white, $color-primary);
@@ -69,7 +69,11 @@
     }
   }
 
-  @each $size in (150, 200) {
+  &_fullWidth {
+    width: 100%;
+  }
+
+  @each $size in (150, 200, 250, 300) {
     &_width_#{$size} {
       width: #{$size}px;
     }
