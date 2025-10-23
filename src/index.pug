@@ -1,19 +1,27 @@
+-
+  // alias names for global context to avoid "Error parsing body of the with expression" by @parcel/transformer-pug
+  const { b: _b, c: _c, renderTmpl: _t, theme } = locals;
+  const themeColor =  theme.color || 'black';
+  const layoutContainer = _b('layoutContainer')
+  const page = _b('page');
+  const slide = _b('slide');
+  const tabs = _b('tabs');
 doctype html
 html(lang='ru')
   head
     title #{ title }
-    meta(name='theme-color', content='#000000')/
+    meta(name='theme-color', content=themeColor)/
     meta(name='viewport', content='width=device-width, initial-scale=1')/
     link(rel='stylesheet', href='./css/main.scss')
-    script(src='main.js', type='module', defer)
-  body.page
+    script(src='main.js', type='module', defer) 
+  body(class=page())
     include templates/header
     include templates/menuPanel
-    main.page__content
-      .layoutContainer
-        include screens/main/tmpl
-        include screens/fields/tmpl
-        include screens/accordion/tmpl
-        include screens/modal/tmpl
-        include screens/tooltip/tmpl
+    main(class=_c(page('content')))
+      div(class=layoutContainer())
+        include slides/main/tmpl
+        include slides/fields/tmpl
+        include slides/accordion/tmpl
+        include slides/modal/tmpl
+        include slides/tooltip/tmpl
     include templates/footer

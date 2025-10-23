@@ -1,0 +1,19 @@
+include ../../components/lib/accordion/tmpl
+-
+  const { b, c } = locals;
+  const slide = b('slide');
+div(class=c(slide('tabContentWrapper', { preview: true })))
+  div(class=c(slide('preview', { constrained: 'width' })))
+    div(class=c(slide('previewWrapper', { scaledForMobile: true })))
+      +accordion({
+  items: [
+    { label: 'Почему бывает так что когда', content: 'Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться' },
+    { label: 'Зачем у некоторых видов', content: 'Равным образом укрепление и развитие структуры способствует подготовки и реализации системы обучения кадров, соответствует насущным потребностям.' },
+  ],
+  openedNum: 0,
+  isCompact: true,
+  isFullWidth: true,
+})
+  div(class=c(slide('about')))
+    h2(class=c(slide('subTitle'))) Для длинных историй, которые, возможно, лучше не видеть
+    div(class=c(slide('desc'))) По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых клиентов недоумение при попытках прочитать рыбу текст. В отличии от lorem ipsum, текст рыба на русском языке наполнит любой макет непонятным смыслом и придаст неповторимый колорит советских времен.

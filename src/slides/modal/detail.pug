@@ -1,0 +1,22 @@
+include ../../components/lib/modal/tmpl
+include ../../components/lib/formField/tmpl
+include ../../components/lib/textInput/tmpl
+include ../../components/lib/button/tmpl
+-
+  const { b, c } = locals;
+  const form = b('form');
+  const formField = b('formField');
+  const slide = b('slide');
+div(class=c(slide('tabContentWrapper', { detail: true }), 'u-centering'))
+  div(class=c(slide('detail', { columns: false })))
+    +button({ text: 'Показать окно!' }, { 'data-modal-trigger': 'modal-detail' })
+    +modal({ title: 'Название модалки' }, { id: 'modal-detail' })
+      p.
+        Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. 
+      form(class=form(), action='')
+        div(class=c(form('fields')))
+          +formField({ label: 'Ваше имя', forField: 'name_input' })
+            +textInput({ mix: { block: formField('control', { type: 'textInput' }) } }, { name: 'name_input', placeholder: 'Anonimus' })
+          +formField({ label: 'Ваш e-mail', forField: 'email_input' })
+            +textInput({ mix: { block: formField('control', { type: 'textInput' }) } }, { name: 'email_input', placeholder: 'some@user.ru' }) 
+        +button({ mix: { block: form('submitButton') }, text: 'Отправить', isFullWidth: true })

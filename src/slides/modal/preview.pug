@@ -1,0 +1,23 @@
+include ../../components/lib/modal/tmpl
+include ../../components/lib/formField/tmpl
+include ../../components/lib/textInput/tmpl
+include ../../components/lib/button/tmpl
+-
+  const { b, c } = locals;
+  const form = b('form');
+  const formField = b('formField');
+  const slide = b('slide');
+div(class=c(slide('tabContentWrapper', { preview: true })))
+  div(class=c(slide('preview', { constrained: 'height' })))
+    div(class=c(slide('previewWrapper', { fullSize: true, scaledForMobile: true })))
+      +modal({ isOpened: true, isCompact: true, isClosable: false })
+        form(class=form(), action='')
+          div(class=c(form('fields')))
+            +formField({ label: 'Ваше имя', forField: 'name_input' })
+              +textInput({ mix: { block: formField('control', { type: 'textInput' }) } }, { name: 'name_input', placeholder: 'Anonimus' })
+            +formField({ label: 'Ваш e-mail', forField: 'email_input' })
+              +textInput({ mix: { block: formField('control', { type: 'textInput' }) } }, { name: 'email_input', placeholder: 'some@user.ru' }) 
+            +button({ mix: { block: form('submitButton') }, text: 'Отправить' })
+  div(class=c(slide('about')))
+    h2(class=c(slide('subTitle'))) Для решений, от которых не отмахнуться без клика
+    div(class=c(slide('desc'))) По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых клиентов недоумение при попытках прочитать рыбу текст. В отличии от lorem ipsum, текст рыба на русском языке наполнит любой макет непонятным смыслом и придаст неповторимый колорит советских времен.

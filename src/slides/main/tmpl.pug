@@ -1,3 +1,16 @@
-.slide
-  h1.slide__title #{ tagline }
-  | Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime fuga expedita quae in doloribus. Quia odio aspernatur ab delectus modi perspiciatis iste. Deleniti temporibus consequatur suscipit ea deserunt reprehenderit tenetur.
+- const jumbotron = _b('jumbotron');
+section(class=_c(jumbotron.mix(page('slide'))))
+  //- include ./assets/images/bem-lego.svg
+  div(class=_c(jumbotron('pictureBox')))
+    svg(
+      class=_c(jumbotron('picture')),
+      xmlns='http://www.w3.org/2000/svg',
+      color=themeColor
+    )
+      use(href='./assets/images/bem-lego.svg')
+  div(class=_c(jumbotron('textBox'))) 
+    h1(class=_c(jumbotron('title'))) #{ tagline }
+    div(class=_c(jumbotron('desc'))) 
+      | От него не будет много пользы, зато будут табы, кнопки, чекбоксы, радиобаттоны, тоглы, текстовые поля,
+      | модалки, аккордеоны и тултипы.
+      | И все это с использованием БЭМ-методологии!

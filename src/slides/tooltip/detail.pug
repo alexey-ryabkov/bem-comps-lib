@@ -1,0 +1,8 @@
+include ../../components/lib/tooltip/tmpl
+-
+  const { b, c } = locals;
+  const slide = b('slide');
+div(class=c(slide('tabContentWrapper', { detail: true }), 'u-centering'))
+  div(class=c(slide('detail', { columns: false })))
+    +tooltip({ position: 'right' })
+      | Полезная информация

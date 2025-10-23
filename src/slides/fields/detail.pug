@@ -1,0 +1,44 @@
+include ../../components/lib/formField/tmpl
+include ../../components/lib/checkbox/tmpl
+include ../../components/lib/radio/tmpl
+include ../../components/lib/toggler/tmpl
+include ../../components/lib/textInput/tmpl
+-
+  const { b, c } = locals;
+  const form = b('form');
+  const formField = b('formField');
+  const slide = b('slide');
+div(class=c(slide('tabContentWrapper', { detail: true })))
+  form(class=c(form.mix(slide('detail', { columns: true }))), action='')
+    div(class=c(slide('detailColumn', { fullWidth: true })))
+      +formField
+        +checkbox({ label: 'Чекбокс' })
+      +formField
+        +checkbox({ label: 'Выбранный' }, { checked: true })
+      +formField
+        +checkbox({ label: 'Неактивный' }, { disabled: true })
+    div(class=c(slide('detailColumn', { fullWidth: true })))
+      +formField
+        +radio({ label: 'Радиобатон' }, { name: 'radio' })
+      +formField
+        +radio({ label: 'Выбранный' }, { name: 'radio', checked: true })
+      +formField
+        +radio({ label: 'Неактивный' }, { name: 'radio', disabled: true })
+    div(class=c(slide('detailColumn', { fullWidth: true })))
+      +formField
+        +toggler({ label: 'Выкл.' })
+      +formField
+        +toggler({ label: 'Вкл.' }, { checked: true })
+      +formField
+        +toggler({ label: 'Неактивный' }, { disabled: true })
+  form(class=c(form.mix(slide('detail', { columns: true }))), action='')
+    div(class=c(slide('detailColumn', { fullWidth: true })))
+      +formField({ label: 'Обычное', forField: 'default_input', statusText: 'Текст статуса' })
+        +textInput({ mix: { block: formField('control', { type: 'textInput' }) } }, { name: 'default_input', placeholder: 'Введите что-нибудь' })
+      +formField({ label: 'Неактивное', forField: 'disabled_input', statusText: 'Текст статуса', isDisabled: true })
+        +textInput({ mix: { block: formField('control', { type: 'textInput' }) } }, { name: 'disabled_input', placeholder: 'Сюда ничего не ввести', disabled: true })
+    div(class=c(slide('detailColumn', { fullWidth: true })))
+      +formField({ label: 'Успешное', forField: 'success_input', validateStatus: 'success', statusText: 'Текст статуса' })
+        +textInput({ mix: { block: formField('control', { type: 'textInput' }) } }, { name: 'success_input', value: 'Верное значение' })
+      +formField({ label: 'Ошибочное', forField: 'error_input', validateStatus: 'error', statusText: 'Текст статуса' })
+        +textInput({ mix: { block: formField('control', { type: 'textInput' }) } }, { name: 'error_input', value: 'Неверное значение' })

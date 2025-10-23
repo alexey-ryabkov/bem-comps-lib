@@ -1,0 +1,26 @@
+include ../../components/lib/formField/tmpl
+include ../../components/lib/checkbox/tmpl
+include ../../components/lib/toggler/tmpl
+include ../../components/lib/radio/tmpl
+-
+  const { b, c } = locals;
+  const form = b('form');
+  const slide = b('slide');
+div(class=c(slide('tabContentWrapper', { preview: true })))
+  div(class=c(slide('preview')))
+    div(class=c(slide('previewWrapper', { scaledForMobile: true })))
+      form(class=form(), action='')
+        div(class=c(form('cols')))
+          div(class=c(form('fields')))
+            +checkbox({ label: 'Чекбокс' })
+            +checkbox({ label: 'Выбранный' }, { checked: true })
+            +checkbox({ label: 'Неактивный' }, { disabled: true })
+            +toggler({ label: 'Вкл.' })
+          div(class=c(form('fields')))
+            +radio({ label: 'Радиобатон' }, { name: 'radio' })
+            +radio({ label: 'Выбранный' }, { name: 'radio', checked: true })
+            +radio({ label: 'Неактивный' }, { name: 'radio', disabled: true })
+            +toggler({ label: 'Выкл.' }, { checked: true, disabled: true })
+  div(class=c(slide('about')))
+    h2(class=c(slide('subTitle'))) С ними ввод обретает форму и отправляется на сервер
+    div(class=c(slide('desc'))) По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых клиентов недоумение при попытках прочитать рыбу текст. В отличии от lorem ipsum, текст рыба на русском языке наполнит любой макет непонятным смыслом и придаст неповторимый колорит советских времен.
