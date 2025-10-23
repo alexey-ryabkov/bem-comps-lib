@@ -1,8 +1,10 @@
+/* stylelint-disable selector-class-pattern */
 /* stylelint-disable custom-property-pattern */
 @use 'vars' as *;
 @use 'utils';
 
 :root {
+  --logo-color: #{$color-primary};
   --bg-color: #{$grey-0};
   --border-color: #{$grey-3};
   --page-bg-color: var(--bg-color);
@@ -32,6 +34,7 @@
 }
 
 :root[data-theme-dark] {
+  --logo-color: #{$white};
   --bg-color: #{$grey-4};
   --content-bg-color: #{$black};
   --text-primary-color: #{$white};
@@ -66,4 +69,8 @@
 
 .link {
   color: $color-primary;
+}
+
+.u-centering {
+  @include utils.box-centering;
 }
