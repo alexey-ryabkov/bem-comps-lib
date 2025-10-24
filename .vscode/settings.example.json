@@ -1,0 +1,9 @@
+{
+  "[pug,jade,markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss,postcss,pcss,css]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
+  },
+  "stylelint.validate": ["scss", "postcss", "pcss", "css"]
+}

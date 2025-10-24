@@ -1,0 +1,10 @@
+.vscode/*
+!.vscode/*.example.json
+.idea
+.DS_STORE
+Thumbs.db
+node_modules
+build
+dist
+*bckp*
+.parcel-cache
