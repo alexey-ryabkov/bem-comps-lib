@@ -28,6 +28,11 @@
       "nesting": false
     }
   },
+  "targets": {
+    "default": {
+      "optimize": false
+    }
+  },
   "devDependencies": {
     "@parcel/transformer-pug": "2.15.4",
     "@parcel/transformer-sass": "2.15.4",

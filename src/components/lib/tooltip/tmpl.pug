@@ -6,4 +6,7 @@ mixin tooltip({ mix, position = 'bottom', isOpened = false, isPrimary = true } =
     svg(class=c(tooltip('trigger')), xmlns='http://www.w3.org/2000/svg')
       use(href='./assets/icons/sprite.svg#question')
     span(class=c(tooltip('bubble', { pos: position, primary: isPrimary }))) 
-      block
+      if block
+        block
+      else
+        | &nbsp;
