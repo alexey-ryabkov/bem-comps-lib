@@ -27,6 +27,8 @@
   }
 
   &__picture {
+    color: $color-primary;
+
     @include utils.size(10rem, 12.963rem);
 
     @media (--layout-mf-md) {
